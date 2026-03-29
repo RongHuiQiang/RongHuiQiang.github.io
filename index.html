@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huiqiang Rong - Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a5276;
+            --primary-light: #2980b9;
+            --primary-dark: #0e2f44;
+            --accent: #e74c3c;
+            --accent-warm: #e67e22;
+            --bg: #fafbfc;
+            --bg-card: #ffffff;
+            --bg-sidebar: #1a2332;
+            --bg-sidebar-hover: rgba(255,255,255,0.08);
+            --text: #2c3e50;
+            --text-light: #5d6d7e;
+            --text-muted: #95a5a6;
+            --border: #e8ecf1;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+            --radius: 10px;
+            --nav-height: 56px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--nav-height) + 20px);
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* ===== TOP NAVIGATION ===== */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-brand {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            margin-right: 2.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        /* ===== LAYOUT ===== */
+        .page-wrapper {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: calc(var(--nav-height) + 24px);
+            gap: 2.5rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        /* ===== SIDEBAR / PROFILE CARD ===== */
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            position: sticky;
+            top: calc(var(--nav-height) + 24px);
+            align-self: flex-start;
+        }
+
+        .profile-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .profile-photo-wrapper {
+            width: 100%;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            color: rgba(255,255,255,0.85);
+            font-size: 5rem;
+        }
+
+        .profile-info {
+            padding: 1.25rem 1.25rem 1rem;
+            text-align: center;
+        }
+
+        .profile-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.3;
+        }
+
+        .profile-name-cn {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 400;
+            margin-top: 0.1rem;
+        }
+
+        .profile-title {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .profile-affiliation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .profile-affiliation img {
+            height: 22px;
+        }
+
+        .profile-links {
+            padding: 0.75rem 1.25rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .profile-link {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.45rem 0.7rem;
+            border-radius: 7px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .profile-link:hover {
+            background: #f0f4f8;
+            color: var(--primary);
+        }
+
+        .profile-link i,
+        .profile-link .link-icon {
+            width: 20px;
+            text-align: center;
+            color: var(--primary-light);
+            font-size: 1rem;
+        }
+
+        .profile-link .link-icon img {
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+        }
+
+        .social-icons-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0 1.25rem 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f4f8;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .social-icon-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26,82,118,0.3);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            flex: 1;
+            min-width: 0;
+            padding-bottom: 4rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title .emoji {
+            font-style: normal;
+            font-size: 1.3rem;
+        }
+
+        /* About Me */
+        .about-text {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--text);
+        }
+
+        .about-text p {
+            margin-bottom: 0.8rem;
+        }
+
+        .about-text a {
+            color: var(--primary-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .about-text a:hover {
+            border-bottom-color: var(--primary-light);
+        }
+
+        .research-interests {
+            margin: 1rem 0;
+            padding-left: 1.2rem;
+        }
+
+        .research-interests li {
+            margin-bottom: 0.3rem;
+            color: var(--text);
+        }
+
+        .contact-block {
+            background: #f7f9fb;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            font-size: 0.92rem;
+        }
+
+        .contact-block p {
+            margin-bottom: 0.35rem;
+        }
+
+        .note-box {
+            background: linear-gradient(135deg, #fef9e7, #fdebd0);
+            border-left: 4px solid var(--accent-warm);
+            padding: 0.85rem 1.1rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+            font-size: 0.92rem;
+            color: #7d6608;
+        }
+
+        .cv-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+            padding: 0.5rem 1.2rem;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .cv-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(26,82,118,0.3);
+        }
+
+        /* Education */
+        .edu-timeline {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .edu-timeline::before {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .edu-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+        }
+
+        .edu-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            font-size: 1.02rem;
+            color: var(--primary-dark);
+        }
+
+        .edu-school {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .edu-major {
+            font-size: 0.88rem;
+            color: var(--text-light);
+        }
+
+        .edu-time {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Publications */
+        .pub-note {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .pub-year-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .pub-list {
+            list-style: none;
+            counter-reset: pub-counter;
+        }
+
+        .pub-item {
+            position: relative;
+            padding: 0.85rem 1rem 0.85rem 1rem;
+            margin-bottom: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.2s;
+            line-height: 1.7;
+        }
+
+        .pub-item:hover {
+            border-color: var(--primary-light);
+            box-shadow: 0 2px 8px rgba(41,128,185,0.1);
+        }
+
+        .pub-venue {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.15rem 0.55rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+            letter-spacing: 0.03em;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .pub-title {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .pub-authors {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin-top: 0.2rem;
+        }
+
+        .pub-authors .me {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .pub-venue-full {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 0.15rem;
+        }
+
+        .pub-links {
+            margin-top: 0.4rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--primary-light);
+            text-decoration: none;
+            padding: 0.2rem 0.6rem;
+            background: #eaf2f8;
+            border-radius: 5px;
+            transition: all 0.2s;
+        }
+
+        .pub-link:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .pub-contribution {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.35rem;
+            padding: 0.5rem 0.75rem;
+            background: #f8fafb;
+            border-left: 3px solid var(--primary-light);
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* News */
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--border);
+            align-items: baseline;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            min-width: 72px;
+        }
+
+        .news-emoji {
+            font-size: 1rem;
+        }
+
+        .news-text {
+            font-size: 0.92rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .news-text a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        .news-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Services */
+        .service-category {
+            margin-bottom: 1.2rem;
+        }
+
+        .service-label {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.35rem;
+        }
+
+        .service-content {
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .placeholder-text {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.88rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        .footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .page-wrapper {
+                flex-direction: column;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+            }
+
+            .profile-card {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .profile-photo-wrapper {
+                width: 140px;
+                min-height: 140px;
+                aspect-ratio: 1;
+                border-radius: var(--radius) 0 0 0;
+            }
+
+            .profile-info {
+                flex: 1;
+                min-width: 180px;
+                text-align: left;
+            }
+
+            .profile-affiliation {
+                justify-content: flex-start;
+            }
+
+            .profile-links {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .social-icons-row {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                right: 0;
+                background: rgba(26,35,50,0.98);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.25rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .profile-card {
+                flex-direction: column;
+            }
+
+            .profile-photo-wrapper {
+                width: 100%;
+                max-height: 280px;
+                border-radius: var(--radius) var(--radius) 0 0;
+            }
+
+            .profile-info {
+                text-align: center;
+            }
+
+            .profile-affiliation {
+                justify-content: center;
+            }
+
+            .news-item {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: fadeInUp 0.5s ease both;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.08s; }
+        .section:nth-child(3) { animation-delay: 0.16s; }
+        .section:nth-child(4) { animation-delay: 0.24s; }
+        .section:nth-child(5) { animation-delay: 0.32s; }
+        .section:nth-child(6) { animation-delay: 0.40s; }
+    </style>
+</head>
+<body>
+
+<!-- ===== TOP NAVIGATION ===== -->
+<nav class="top-nav">
+    <a href="#about-me" class="nav-brand">Huiqiang Rong</a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#about-me">About Me</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#services">Services</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+    </button>
+</nav>
+
+<!-- ===== PAGE LAYOUT ===== -->
+<div class="page-wrapper">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <div class="profile-card">
+            <!-- PROFILE PHOTO: Replace the placeholder below with your photo -->
+            <div class="profile-photo-wrapper">
+                <!-- 
+                    TODO: Replace with your photo. Example:
+                    <img src="images/profile.jpg" alt="Huiqiang Rong">
+                -->
+                <i class="fas fa-user photo-placeholder"></i>
+            </div>
+
+            <div class="profile-info">
+                <div class="profile-name">Huiqiang Rong</div>
+                <div class="profile-name-cn">荣辉强</div>
+                <div class="profile-title">M.Eng. Student @ BUPT</div>
+                <div class="profile-affiliation">
+                    <!-- Optional: Add your university logo -->
+                    <!-- <img src="images/bupt_logo.png" alt="BUPT"> -->
+                    <span>Beijing University of Posts and Telecommunications</span>
+                </div>
+            </div>
+
+            <div class="profile-links">
+                <a href="mailto:rong@bupt.edu.cn" class="profile-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>rong@bupt.edu.cn</span>
+                </a>
+                <a href="https://github.com/rhq945" target="_blank" class="profile-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <!-- TODO: Uncomment when available -->
+                <!--
+                <a href="YOUR_GOOGLE_SCHOLAR_URL" target="_blank" class="profile-link">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Google Scholar</span>
+                </a>
+                <a href="YOUR_LINKEDIN_URL" target="_blank" class="profile-link">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="YOUR_ORCID_URL" target="_blank" class="profile-link">
+                    <i class="fab fa-orcid"></i>
+                    <span>ORCID</span>
+                </a>
+                <a href="YOUR_CV_PDF_URL" target="_blank" class="profile-link">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>CV.PDF</span>
+                </a>
+                -->
+            </div>
+
+            <div class="social-icons-row">
+                <a href="mailto:rong@bupt.edu.cn" class="social-icon-btn" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://github.com/rhq945" target="_blank" class="social-icon-btn" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <!-- TODO: Uncomment when available -->
+                <!--
+                <a href="YOUR_GOOGLE_SCHOLAR_URL" target="_blank" class="social-icon-btn" title="Google Scholar">
+                    <i class="fas fa-graduation-cap"></i>
+                </a>
+                <a href="YOUR_LINKEDIN_URL" target="_blank" class="social-icon-btn" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                -->
+            </div>
+        </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+        <!-- About Me -->
+        <section class="section" id="about-me">
+            <h1 class="section-title"><span class="emoji">🚩</span> About Me</h1>
+            <div class="about-text">
+                <p>
+                    Hi! I'm <strong>Huiqiang Rong (荣辉强)</strong>, a Master's student in Computer Science and Technology at 
+                    <a href="https://www.bupt.edu.cn/" target="_blank">Beijing University of Posts and Telecommunications (BUPT)</a>, 
+                    advised by <a href="https://zhuyf8899.github.io/" target="_blank">Associate Prof. Yifan Zhu</a>. 
+                    I obtained my Bachelor of Engineering degree in Computer Science and Technology from BUPT as well.
+                </p>
+                <p>My research interests include:</p>
+                <ul class="research-interests">
+                    <li>Large Language Models (LLMs)</li>
+                    <li>Hallucination Control &amp; Mitigation</li>
+                    <li>Multimodal Large Language Models (MLLMs)</li>
+                    <li>AI for Education (AI4Edu)</li>
+                </ul>
+
+                <div class="contact-block">
+                    <p><strong>Email:</strong> <a href="mailto:rong@bupt.edu.cn">rong@bupt.edu.cn</a></p>
+                    <!-- TODO: Add office address if available -->
+                    <!-- <p><strong>Office:</strong> Room XXX, XXX Building, BUPT, Beijing, China</p> -->
+                </div>
+
+                <div class="note-box">
+                    <strong>Note:</strong> I am actively looking for research collaborations on LLM-related topics. 
+                    If you share similar research interests, please feel free to reach out!
+                </div>
+
+                <!-- TODO: Add your CV link -->
+                <!--
+                <a href="YOUR_CV_PDF_URL" target="_blank" class="cv-button">
+                    <i class="fas fa-file-pdf"></i> Download CV
+                </a>
+                -->
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section" id="education">
+            <h1 class="section-title"><span class="emoji">🎓</span> Education</h1>
+            <div class="edu-timeline">
+                <div class="edu-item">
+                    <div class="edu-degree">Master of Engineering</div>
+                    <div class="edu-school">Beijing University of Posts and Telecommunications (BUPT)</div>
+                    <div class="edu-major">Computer Science and Technology</div>
+                    <!-- TODO: Add actual dates -->
+                    <div class="edu-time">2023 – Present</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-degree">Bachelor of Engineering</div>
+                    <div class="edu-school">Beijing University of Posts and Telecommunications (BUPT)</div>
+                    <div class="edu-major">Computer Science and Technology</div>
+                    <!-- TODO: Add actual dates -->
+                    <div class="edu-time">2019 – 2023</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Representative Works -->
+        <section class="section" id="works">
+            <h1 class="section-title"><span class="emoji">⭐</span> Representative Works</h1>
+            <ol class="pub-list">
+                <li class="pub-item">
+                    <div>
+                        <span class="pub-venue">ICLR 2026</span>
+                        <span class="pub-title">Token-Guard: Towards Token-Level Hallucination Control via Self-Checking Decoding</span>
+                    </div>
+                    <div class="pub-authors">
+                        Yifan Zhu, <span class="me">Huiqiang Rong</span>, <a href="https://haoranluo.net/" target="_blank">Haoran Luo</a>.
+                    </div>
+                    <div class="pub-venue-full">
+                        The International Conference on Learning Representations (ICLR), 2026.
+                    </div>
+                    <div class="pub-contribution">
+                        <strong>Key Contribution:</strong> Proposed a token-level hallucination detection and suppression framework 
+                        that achieves self-checking during the decoding process to enhance LLM reliability.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://openreview.net/forum?id=5fCDEz43ya" target="_blank" class="pub-link">
+                            <i class="fas fa-file-alt"></i> Paper
+                        </a>
+                        <a href="https://github.com/rhq945/Token-Guard" target="_blank" class="pub-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </li>
+
+                <!-- 
+                    TODO: Add more representative works here. Copy the <li class="pub-item">...</li> block above as template.
+                    Example:
+                    <li class="pub-item">
+                        <div>
+                            <span class="pub-venue">VENUE</span>
+                            <span class="pub-title">Paper Title</span>
+                        </div>
+                        <div class="pub-authors">Author1, <span class="me">Huiqiang Rong</span>, Author3.</div>
+                        <div class="pub-venue-full">Full Venue Name, Year.</div>
+                        <div class="pub-links">
+                            <a href="PAPER_URL" target="_blank" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+                            <a href="CODE_URL" target="_blank" class="pub-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </li>
+                -->
+            </ol>
+        </section>
+
+        <!-- Selected Publications -->
+        <section class="section" id="publications">
+            <h1 class="section-title"><span class="emoji">📚</span> Selected Publications</h1>
+
+            <div class="pub-year-header">2026</div>
+            <ol class="pub-list">
+                <li class="pub-item">
+                    <div>
+                        <span class="pub-venue">ICLR'26</span>
+                        <span class="pub-title">Token-Guard: Towards Token-Level Hallucination Control via Self-Checking Decoding</span>
+                    </div>
+                    <div class="pub-authors">
+                        Yifan Zhu, <span class="me">Huiqiang Rong</span>, <a href="https://haoranluo.net/" target="_blank">Haoran Luo</a><sup>†</sup>.
+                    </div>
+                    <div class="pub-venue-full">
+                        The International Conference on Learning Representations (<strong>ICLR</strong>), 2026.
+                    </div>
+                    <div class="pub-links">
+                        <a href="https://openreview.net/forum?id=5fCDEz43ya" target="_blank" class="pub-link">
+                            <i class="fas fa-file-alt"></i> Paper
+                        </a>
+                        <a href="https://github.com/rhq945/Token-Guard" target="_blank" class="pub-link">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                    </div>
+                </li>
+
+                <!-- 
+                    TODO: Add more publications. Group by year with:
+                    <div class="pub-year-header">2025</div>
+                    Then add <li class="pub-item">...</li> entries.
+                -->
+            </ol>
+        </section>
+
+        <!-- Latest News -->
+        <section class="section" id="news">
+            <h1 class="section-title"><span class="emoji">🔥</span> Latest News</h1>
+            <ul class="news-list">
+                <li class="news-item">
+                    <span class="news-date">2026.03</span>
+                    <span class="news-emoji">🎉</span>
+                    <span class="news-text">
+                        Our paper "<a href="https://openreview.net/forum?id=5fCDEz43ya" target="_blank">Token-Guard: Towards Token-Level Hallucination Control via Self-Checking Decoding</a>" 
+                        was accepted by <strong>ICLR 2026</strong>!
+                    </span>
+                </li>
+
+                <!-- 
+                    TODO: Add more news items. Template:
+                    <li class="news-item">
+                        <span class="news-date">YYYY.MM</span>
+                        <span class="news-emoji">🎉</span>
+                        <span class="news-text">Your news content here with optional <a href="URL">links</a>.</span>
+                    </li>
+                -->
+            </ul>
+        </section>
+
+        <!-- Academic Services -->
+        <section class="section" id="services">
+            <h1 class="section-title"><span class="emoji">💼</span> Academic Services</h1>
+
+            <div class="service-category">
+                <div class="service-label">Conference Reviewer</div>
+                <div class="service-content">
+                    <span class="placeholder-text">To be updated.</span>
+                    <!-- 
+                        TODO: Replace with your actual service info. Example:
+                        NeurIPS 2026, ICML 2026, ACL 2026
+                    -->
+                </div>
+            </div>
+
+            <div class="service-category">
+                <div class="service-label">Journal Reviewer</div>
+                <div class="service-content">
+                    <span class="placeholder-text">To be updated.</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <p>&copy; 2026 Huiqiang Rong. Last updated: March 2026.</p>
+    <p style="margin-top:0.3rem;">
+        Powered by vanilla HTML/CSS. 
+        Design inspired by <a href="https://haoranluo.net/" target="_blank">Haoran Luo</a>.
+    </p>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navLinks').classList.remove('open');
+        });
+    });
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.style.color = '';
+            link.style.background = '';
+            if (link.getAttribute('href') === '#' + current) {
+                link.style.color = '#fff';
+                link.style.background = 'rgba(255,255,255,0.12)';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
