@@ -490,12 +490,26 @@
             color: var(--text-light);
             margin-top: 0.2rem;
         }
-
+        
+        /* 你的名字：使用深蓝色并加粗 */
         .pub-authors .me {
             color: var(--primary);
             font-weight: 700;
         }
-
+        
+        /* 其他作者的链接：使用与导师链接一致的浅蓝色 */
+        .pub-authors a {
+            color: var(--primary-light);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        /* 鼠标悬停时的效果 */
+        .pub-authors a:hover {
+            border-bottom-color: var(--primary-light);
+            opacity: 0.8;
+        }
         .pub-venue-full {
             font-size: 0.85rem;
             color: var(--text-muted);
@@ -738,11 +752,11 @@
     <a href="#about-me" class="nav-brand">Huiqiang Rong</a>
     <ul class="nav-links" id="navLinks">
         <li><a href="#about-me">About Me</a></li>
-        <li><a href="#education">Education</a></li>
+        <li><a href="#news">News</a></li>
         <li><a href="#works">Works</a></li>
         <li><a href="#publications">Publications</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#services">Services</a></li>
+        <!-- <li><a href="#services">Services</a></li> -->
+        <li><a href="#education">Education</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
@@ -894,7 +908,9 @@
                         <span class="pub-title">Token-Guard: Towards Token-Level Hallucination Control via Self-Checking Decoding</span>
                     </div>
                     <div class="pub-authors">
-                        Yifan Zhu, <span class="me">Huiqiang Rong</span>, <a href="https://haoranluo.net/" target="_blank">Haoran Luo</a>.
+                        <a href="https://zhuyf8899.github.io/" target="_blank">Yifan Zhu</a>, 
+                        <span class="me">Huiqiang Rong</span>, 
+                        <a href="https://haoranluo.net/" target="_blank">Haoran Luo</a>.
                     </div>
                     <div class="pub-venue-full">
                         The International Conference on Learning Representations (ICLR), 2026.
@@ -937,7 +953,7 @@
 
         
         <!-- Academic Services -->
-        <section class="section" id="services">
+        <!-- <section class="section" id="services">
             <h1 class="section-title"><span class="emoji">💼</span> Academic Services</h1>
 
             <div class="service-category">
@@ -948,7 +964,7 @@
                         TODO: Replace with your actual service info. Example:
                         NeurIPS 2026, ICML 2026, ACL 2026
                     -->
-                </div>
+                <!-- </div>
             </div>
 
             <div class="service-category">
@@ -957,7 +973,7 @@
                     <span class="placeholder-text">To be updated.</span>
                 </div>
             </div>
-        </section>
+        </section> --> -->
 
         <!-- Education -->
         <section class="section" id="education">
